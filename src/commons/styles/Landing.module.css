@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+/* *{
+    border: 1px black  solid;
+} */
+.bodyContainer{
+    /* background: rgba(99, 121, 244, 0.2); */
+    background: rgba(250, 252, 255, 1);
+
+}
+.navbar{
+    font-family: "Nunito Sans"; 
+    font-weight: bold;
+    z-index: 1;
+}
+.navbar-brand{
+    font-size: 29px;
+    margin-top: 30px;
+}
+.btn1{
+    margin-right: 30px;
+    border-radius: 12px;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    height: 48px;
+    width: 120px;
+    background: rgba(99, 121, 244, 1);
+    color: rgba(255, 255, 255, 1);
+}
+.btn2{
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    color: #6379F4;
+    height: 48px;
+    width: 120px;
+    background: rgba(255, 255, 255, 1);
+}
+.jumbotron{
+    background: rgba(99, 121, 244, 1);
+    background-size: cover;
+    height: 900px;
+    margin-top: -75px;
+    display: flex;
+}
+.vector{
+    position: absolute;
+    width: 100%;
+    /* left: -130px; */
+    top: 30px;
+    left: 0px;
+    /* right: 0px; */
+    opacity: 0.6;
+}
+.display4{
+    font-family: "Nunito Sans";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 93px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    height: 186px;
+    width: 474px;
+    margin-top: 22%;
+    margin-left: 20%;
+
+}
+.lead{
+    height: 69px;
+    width: 428px;
+    color: rgba(255, 255, 255, 1);
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    margin-top: 40px;
+    margin-left: 20%;
+    }
+.img-phone{
+    margin-right: 150px;
+    margin-bottom: -64px;
+    z-index: 1;
+}
+.panel{
+    height: 300px;
+    background: rgba(71, 58, 209, 0.06);
+
+    margin-top: -32px;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.col{
+    background: rgba(255, 255, 255, 1);
+    /* box-shadow: 0px 4px 250px rgba(172, 172, 172, 0.15);  */
+    /* height: 344px; */
+    border-radius: 25px;
+    margin: 10px;
+    padding-top: 20px; 
+    padding-bottom: 20px;
+    align-content: space-around;
+    /* width: 367px; */
+}
+
+.features{
+    background: rgba(71, 58, 209, 0.06);
+}
+.box{
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+.text-container{
+    margin-top: 174px;
+    margin-left: 50px;
+}
+.row{
+    display: flex;
+}
+.textSpan{
+    color: rgba(99, 121, 244, 1);
+}
+.h1{
+    font-family: Nunito Sans;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 93px;
+}
+.title1{
+    font-family: Nunito Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    }
+.desc{
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 31px;
+}
+.shadow-sm{
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    padding: 5px;  
+}
+.testimoni{
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 1);
+}
+.users{
+    margin-bottom: 30px;
+}
+.h2{
+    margin-bottom: 30px;
+    color: white;
+}
+.footer{
+    background: rgba(99, 121, 244, 1);
+    /* padding-top: 80px;
+    padding-bottom: 75px; */
+}
+.hr{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: white;
+}
+/* footer p{
+    color: rgba(239, 239, 239, 0.75);
+} */
+@media (max-width: 768px){
+    .vektor{
+        display: none;
+    }
+    .img-phone{
+        display: none;
+    }
+    .display-4, .lead{
+        margin-left: 5px;
+        text-align: center;
+    }
+    .jumbotron{
+        height: fit-content;
+    }
+    .btn1{
+        margin-right: 0px;
+    }
+    .panel{
+        height: fit-content;
+    }
+    .row{
+        height: fit-content;
+        flex-direction: column;
+        margin: unset;
+        /* width: fit-content; */
+    }
+    .benefits{
+        object-fit: scale-down;
+        height: fit-content;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .col-5{
+        display: none;
+    }
+    .text-container{
+        margin-left: auto;
+        margin-top: auto;
+    }
+    .h3{
+        margin-bottom: 0px;
+    }
+    .footer{
+        text-align: center;
+    }
+    
+}

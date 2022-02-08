@@ -1,0 +1,138 @@
+.main {
+    width: 270px;
+    height: 100vh;
+    margin-top: 3%;
+    margin-left: 5%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 25px;
+    position: relative;
+  }
+  
+  .main a {
+    text-decoration: none;
+    font-family: "Nunito Sans";
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 35%;
+  }
+  
+  .main ul {
+    padding-left: 0;
+    padding-top: 10%;
+  }
+  
+  .main li {
+    position: relative;
+  }
+  
+  .main > ul > li {
+    list-style-type: none;
+    padding-left: 0;
+    padding-bottom: 52px;
+  }
+  
+  .main .active {
+    color: #6379f4;
+    border-left: 5px solid #6379f4;
+    font-family: "Nunito Sans";
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 34%;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 15%;
+  }
+  
+  .icon-topup {
+    position: absolute;
+    left: 0;
+    background-color: aliceblue;
+  }
+  
+  .logout {
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .logout:hover {
+    cursor: pointer;
+  }
+  
+  .logout p {
+    font-family: "Nunito Sans";
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .logout .icon {
+    position: absolute;
+    left: 15%;
+  }
+
+  .modalContainer {
+    position: absolute;
+    border-radius: 10px;
+    top: 10%;
+    right: -300%;
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    z-index: 999;
+    backdrop-filter: blur(20px);
+  }
+  
+  .modalContainer p {
+    padding-top: 5%;
+    padding-left: 5%;
+    font-family: "Nunito Sans";
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+  }
+  
+  .modalContainer h6 {
+    padding-left: 5%;
+  }
+  
+  .modalContainer .modal-input {
+    width: 90%;
+    margin-top: 5%;
+    height: 65px;
+    border-radius: 10px;
+    margin-left: 5%;
+  }
+  .modal-input::-webkit-outer-spin-button,
+.modal-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  
+  .modalContainer input:focus {
+    border: none;
+  }
+  
+  .modalContainer button {
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    border: none;
+    background-color: #6379f4;
+    color: white;
+  }
+  
+  .modalContainer button:hover {
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    border: none;
+    background-color: #6379f4;
+    color: white;
+  }
