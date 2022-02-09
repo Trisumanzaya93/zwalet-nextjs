@@ -78,24 +78,29 @@ export default function Home() {
 
           <div className="row mt-5">
             <div className="col">
+              <div className={styles.wraperIconlanding}>
+                
               <Image
                 src={icon1}
                 alt="Phone"
                 layout=""
                 className="d-block mx-auto"
               />
+              </div>
               <h3 className="text-center mb-4">24/7 Support</h3>
               <p className="text-center">We have 24/7 contact support so you</p>
               <p className="text-center">can contact us whenever you want</p>
               <p className="text-center">and we will respond it.</p>
             </div>
             <div className="col">
+              <div className={styles.wraperIconlanding}>
               <Image
                 src={icon2}
                 alt="Phone"
                 layout=""
                 className="d-block mx-auto"
               />
+              </div>
               <h3 className="text-center mb-4">Data Privacy</h3>
               <p className="text-center">
                 We make sure your data is safe in our
@@ -104,12 +109,15 @@ export default function Home() {
               <p className="text-center">data you submitted to us.</p>
             </div>
             <div className="col">
+              <div className={styles.wraperIconlanding}>
+                
               <Image
                 src={icon3}
                 alt="Phone"
                 layout=""
                 className="d-block mx-auto"
               />
+              </div>
               <h3 className="text-center mb-4">Easy Download</h3>
               <p className="text-center">
                 Zwallet is 100% totally free to use it’s
