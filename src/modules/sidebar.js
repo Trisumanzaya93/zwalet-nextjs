@@ -75,6 +75,7 @@ function SideBar() {
         </svg>
         <p>Logout</p>
       </div>
+      {/* modal */}
       <div className={styles.modalContainer} hidden={isHide}>
           <p>Top Up</p>
           <h6>

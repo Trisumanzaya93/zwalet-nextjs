@@ -5,16 +5,23 @@
 .bodyContainer{
     /* background: rgba(99, 121, 244, 0.2); */
     background: rgba(250, 252, 255, 1);
-
 }
 .navbar{
     font-family: "Nunito Sans"; 
     font-weight: bold;
-    z-index: 1;
 }
 .navbar-brand{
     font-size: 29px;
     margin-top: 30px;
+}
+
+.wraperPhone{
+    margin-top: -360px;
+    margin-left: 500px;
+    width: 600px;
+}
+.wraperTestimoni{
+    padding-left: 310px;
 }
 .btn1{
     margin-right: 30px;
@@ -65,7 +72,6 @@
     height: 186px;
     width: 474px;
     margin-top: 22%;
-    margin-left: 20%;
 
 }
 .lead{
@@ -78,7 +84,6 @@
     font-size: 18px;
     line-height: 31px;
     margin-top: 40px;
-    margin-left: 20%;
     }
 .img-phone{
     margin-right: 150px;

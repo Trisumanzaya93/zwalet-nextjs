@@ -32,7 +32,7 @@ function Login() {
     alert("succes")
 ;
 
-}).catch((err) => alert(err));
+}).catch((err) => alert("passwor atau email salah"));
   
   }
   return <div>

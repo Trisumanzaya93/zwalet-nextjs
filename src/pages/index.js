@@ -15,56 +15,52 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log("sas");
+  console.log("aso");
+  const handleClick = () => {
+    console.log("ahahha");
     router.push("/login");
+  };
+  const handleSignUp = () => {
+    console.log("ahahha");
+    router.push("/signup");
   };
   return (
     <div className={styles.bodyContainer}>
       <div className="container">
-        <nav className="navbar navbar-light">
+        {/* <nav className="navbar navbar-light z-index-2"> */}
+        <nav className="navbar navbar-light z-index-2">
           <p className="navbar-brand text-white">Zwallet</p>
           <div className="nav-inline">
             <button
               className={`btn btn-light my-2 my-sm-0 ${styles.btn1}`}
-              type="submit"
-              onClick={()=>{router.push("/login");}}
+              onClick={() => handleClick()}
             >
               Login
             </button>
-
-            <a href="./register">
               <button
                 className={`btn btn-light my-2 my-sm-0 ${styles.btn2}`}
+                onClick={() => handleSignUp()}
                 type="submit"
               >
                 Sign Up
               </button>
-            </a>
           </div>
         </nav>
       </div>
       <div className={`${styles.jumbotron} jumbotron-fluid`}>
         <div className="container">
-          <Image
-            className="vector"
-            src={bg1}
-            alt="phones"
-            layout="fill"
-            objectFit="contain"
-          />
           <h1 className={styles.display4}>Awesome App For Saving Time.</h1>
           <p className={styles.lead}>
             We bring you a mobile app for banking problems that oftenly wasting
             much of your times.
           </p>
+        <div className={styles.wraperPhone}>
+        <Image width={1000} height={1000} quality={100} src={phone} alt="" />
         </div>
-        <Image className={`${styles["img-phone"]}`} src={phone} alt="" />
+        </div>
       </div>
       <div className="container">
-        <Image className="panel" src={bg2} layout="" alt="" />
+        <Image className="panel" src={bg2} alt="" />
       </div>
 
       <section className={`${styles.benefits} pb-5 pt-5`}>
@@ -182,13 +178,15 @@ export default function Home() {
             <div className="col-1 d-flex align-items-center justify-content-center">
               <Image src={icon4} className="shadow-sm" alt="" />
             </div>
-            <div className="col-8">
-              <div className="testimoni p-5 shadow">
+            <div className="col-8 ">
+              <div >
+                <div className={styles.wraperTestimoni}>
                 <Image
                   src={photo}
                   alt="Profile"
                   className="d-block mx-auto mb-3"
                 />
+                </div>
                 <p className="font-weight-bold text-center">Alex Hansinburg</p>
                 <p className="small text-center text-muted mb-5">Designer</p>
                 <p className="text-center text-muted">

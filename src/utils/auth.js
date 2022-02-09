@@ -17,3 +17,9 @@ export const signUp = (body) => {
       console.log('hehe', body);
     return axios.post(URL, body);
   };
+
+  export const checkPin = (pin,token) => {
+    const URL = process.env.NEXT_PUBLIC_HEROKU + "/user/pin?pin="+pin;
+      console.log('hehe', URL);
+    return axios.get(URL,{ headers: { Authorization: "Bearer " + token } });
+  };
