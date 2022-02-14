@@ -15,17 +15,54 @@ function Transfer() {
   const router = useRouter();
   const dispatch= useDispatch()
   const allState = useSelector((state) => state);
-  const { data } = allState.serchReciver;
-  console.log(data);
-  const [param,setParam] = useState({})
+  const { data,pagination } = allState.serchReciver;
+  const [param,setParam] = useState({page: 1,...router.query})
+  const onClickNext=()=>{
+    console.log(pagination.totalPage,param);
+    if(parseInt(param.page) <= pagination.totalPage){
+      let counterPage= parseInt(param.page) +1
+      const newParam = {
+        ...param,
+        page: counterPage
+      }
+      setParam(newParam)
+      router.query = newParam;
+      router.push({
+        pathname: router.pathname,
+        query: router.query
+      });
+      console.log(param.page);
+    }else{
+      alert('page habis')
+    }
+  }
+  const onClickPrev=()=>{
+    if(parseInt(param.page) > 1){
+      let counterPage= parseInt(param.page) -1
+      const newParam = {
+        ...param,
+        page: counterPage
+      }
+      setParam(newParam)
+      router.query = newParam;
+      router.push({
+        pathname: router.pathname,
+        query: router.query
+      });
+    }else{
+      alert('page gak ada ')
+    }
+  }
   const onClickHandler = (id) => {
     router.push(`/transfer/${id}`);
   };
   const getUsers=()=>{
-    console.log("diidi");
+    console.log("diidi", router.query);
+    const newParam = {...param, ...router.query};
+    setParam(newParam)
     const token = JSON.parse(localStorage.getItem("token"))
     dispatch(
-      searchReciverAction(param,token)
+      searchReciverAction(newParam, token)
     );
   }
   const handleSearch=(e)=>{
@@ -33,19 +70,27 @@ function Transfer() {
       ...param,
       search: e.target.value
     }
+    console.log('e.target.value', e.target.value);
+    router.query = newParam;
+    router.push({
+      pathname: router.pathname,
+      query: router.query
+    });
   const token = JSON.parse(localStorage.getItem("token"))
     setParam(newParam)
     dispatch(
       searchReciverAction(newParam,token)
     );
   }
-
+   
   useEffect(() => {
-    getUsers();
-    onClickHandler;
-    // getHistoryPopular();
-    //  hendleDEtailVehicle ()
-  }, []);
+    if (router.isReady) {
+      getUsers();
+      onClickHandler;
+      // getHistoryPopular();
+      //  hendleDEtailVehicle ()
+    }
+  }, [router]);
   return (
     <div>
       <Layout title="Tranfer">
@@ -67,6 +112,7 @@ function Transfer() {
                     className={`${styles["search-input"]}`}
                     placeholder="search receiver here"
                     onChange={(e)=> handleSearch(e)}
+                    value={param.search}
                   />
                 </div>
               </div>
@@ -78,7 +124,7 @@ function Transfer() {
                   <div className={`${styles["transaction-history"]}`}>
                     <div className={styles.history}>
                       <Image src={data.image !== null ? `${process.env.NEXT_PUBLIC_HEROKU_IMAGE}${data.image}` : image}  
-                      width={100}height={100}quality={100} alt="" />
+                      onError={()=>image} priority={true} width={100}height={100}quality={100} alt="" />
                       <div className={styles.transaction}>
                         <p className={styles.name1}>{`${data.firstName} ${data.lastName}`}</p>
                         <p className={styles.phone}>{data.noTelp ?? "-"}</p>
@@ -89,6 +135,14 @@ function Transfer() {
               </div>
           ))}
             </div>
+            <div className={`${styles["pagination-list"]}`}>
+                  <button className={`${styles["pagination-prev"]}`} onClick={onClickPrev} >
+                    Previous
+                  </button>
+                  <button className={`${styles["pagination-next"]}`} onClick={onClickNext}>
+                    Next page
+                  </button>
+                </div>
           </div>
         </div>
         <Footer />

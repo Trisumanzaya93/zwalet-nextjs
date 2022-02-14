@@ -8,6 +8,9 @@ import searchReciverReducer from "./searchreciver";
 import userTranferReducer from "./usertransfer";
 import topUpReducer from "./topup";
 import getHistoryReducer from "./gethistory";
+import updatePinReducer from "./updatepin";
+import getHistoryByIdReducer from "./gethistorybyid";
+import getDashboardReducer from "./getDasbhoard";
 
 
 const reducers = combineReducers({
@@ -19,6 +22,9 @@ const reducers = combineReducers({
   userTransfer :userTranferReducer,
   topUp:topUpReducer,
   getHistory:getHistoryReducer,
+  updatePin:updatePinReducer,
+  getHistoryById: getHistoryByIdReducer,
+  getDashboard:getDashboardReducer,
 
 });
 

@@ -23,3 +23,15 @@ export const signUp = (body) => {
       console.log('hehe', URL);
     return axios.get(URL,{ headers: { Authorization: "Bearer " + token } });
   };
+
+  export const changePassword = (id,body,token) => {
+    const URL = process.env.NEXT_PUBLIC_HEROKU + `/user/password/${id}`;
+      console.log('hehe', body);
+    return axios.patch(URL, body ,{ headers: { Authorization: "Bearer " + token } });
+  };
+
+  export const changePasswordemail = (body) => {
+    const URL = process.env.NEXT_PUBLIC_HEROKU + `/auth/reset-password`;
+      console.log('hehe', body);
+    return axios.patch(URL,body);
+  };

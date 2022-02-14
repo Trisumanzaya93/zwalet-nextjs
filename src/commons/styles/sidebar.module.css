@@ -1,6 +1,5 @@
 .main {
     width: 270px;
-    height: 100vh;
     margin-top: 3%;
     margin-left: 5%;
     background-color: rgb(255, 255, 255);
@@ -135,4 +134,7 @@
     border: none;
     background-color: #6379f4;
     color: white;
+  }
+  .bgContainer{
+    background-color: black;
   }

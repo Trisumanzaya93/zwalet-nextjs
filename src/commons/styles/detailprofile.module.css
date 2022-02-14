@@ -56,3 +56,10 @@
     text-align: end;
 
 }
+.btnEdit{
+    border: none;
+    background-color: white;
+    text-align: end;
+    color: blue;
+    margin-right: 30px;
+}

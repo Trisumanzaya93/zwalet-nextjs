@@ -1,48 +1,48 @@
-import styles from "../../commons/styles/login.module.css";
-import Sidelogin from "../../modules/sidelogin";
+import Footer from "../../modules/footer";
+import Layout from "../../modules/layout";
+import Navbar from "../../modules/navbar";
+import SideBar from "../../modules/sidebar";
+import styles from "../../commons/styles/profile.module.css";
+import css from "../../commons/styles/changepassword.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { updatePinAction } from "../../redux/actions/users";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
-function Createpin() {
-  const router = useRouter()
+function Updatepin() {
   const dispatch=useDispatch()
-  const [disableConfirm, setDisableConfirm] = useState(false);
-  const [pin, setPin] = useState(['','','','','','']);
-  const allState = useSelector((state) => state);
-  const { userData } = allState.auth;
-
+  const router=useRouter()
+  const [pin, setPin] = useState(["", "", "", "", "", ""]);
   const handlePinInput = (index, e) => {
     const newPin = pin;
     newPin[index - 1] = e.target.value;
     setPin(newPin);
-  }
+  };
 
   function getCodeBoxElement(index) {
-    if (typeof window !== 'undefined'){
-      return document.getElementById('codeBox' + index);
+    if (typeof window !== "undefined") {
+      return document.getElementById("codeBox" + index);
     }
   }
 
   function onKeyUpEvent(index, event) {
     const eventCode = event.which || event.keyCode;
-    
-    if (typeof window !== 'undefined'){
-    let confirm = document.getElementById('confirm');
-    if (getCodeBoxElement(index).value.length === 1) {
-      if (index !== 6) {
-        getCodeBoxElement(index+ 1).focus();
-      } else {
-        getCodeBoxElement(index).blur();
-        // Submit code
-        confirm.classList=`${styles["btn-1"]}`;
+
+    if (typeof window !== "undefined") {
+      let confirm = document.getElementById("confirm");
+      if (getCodeBoxElement(index).value.length === 1) {
+        if (index !== 6) {
+          getCodeBoxElement(index + 1).focus();
+        } else {
+          getCodeBoxElement(index).blur();
+          // Submit code
+          confirm.classList = `${styles["btn-1"]}`;
+        }
+      }
+      if (eventCode === 8 && index !== 1) {
+        getCodeBoxElement(index - 1).focus();
       }
     }
-    if (eventCode === 8 && index !== 1) {
-      getCodeBoxElement(index - 1).focus();
-    }
-  }
   }
   // function onKeyUpPin(index, event) {
   //   const eventCode = event.which || event.keyCode;
@@ -72,7 +72,7 @@ function Createpin() {
       }
     }
   }
-
+  
   const handleUpdatePin = async (e) => {
     // check pin
     console.log('fuuuu');
@@ -83,15 +83,14 @@ function Createpin() {
     const body={
       pin:joinPin
     }
+    console.log(body,token,id);
 
     try {
       const checkPin =  await dispatch(updatePinAction(id,body,token))
       if(checkPin.value.data.status === 200) {
           alert('succes set pin');
-          router.push('/home')
+          router.push('/profile')
           
-      }else{
-        alert("deprii")
       }
     } catch (error) {
       alert('Pin gagal')
@@ -100,18 +99,20 @@ function Createpin() {
 
   return (
     <div>
-      <div className={styles.containerLogin}>
-        <Sidelogin />
-        <form className={`${styles["form-container"]}`}>
-          <p className={styles.text2}>
-            Did You Forgot Your Password? Don’t Worry, You Can Reset Your
-            Password In a Minutes.
+      <Layout title={"update pin"}/>
+      <Navbar />
+      <div className="d-flex">
+        <SideBar />
+        <div className={`${styles["profile-section"]}`}>
+        <div >
+          <p className={`${css["profile-title"]}`}>Change Pin</p>
+          <p className={`${css["profile-desc"]}`}>
+            Enter your current 6 digits Zwallet PIN below <br />
+            to continue to the next steps.
           </p>
-          <p className={styles.text3}>
-            To reset your password, you must type your e-mail and we will send a
-            link to your email and you will be directed to the reset password
-            screens.
-          </p>
+        </div>
+        <div className="d-flex justify-content-center">
+        <form className={styles.wraperInput}>
           <div className={`${styles["form-input"]}`}>
             <input
               className={styles.inputPin}
@@ -167,18 +168,21 @@ function Createpin() {
               id="codeBox6"
               type="number"
             />
-            <button
-              onClick={(e) => handleUpdatePin(e)}
-              className={styles.btnDisable}
-              id="confirm"
-            >
-              Confirm
-            </button>
           </div>
+          <button
+            onClick={(e) => handleUpdatePin(e)}
+            className={styles.btnDisable}
+            id="confirm"
+          >
+            Confirm
+          </button>
         </form>
+        </div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
 
-export default Createpin;
+export default Updatepin;

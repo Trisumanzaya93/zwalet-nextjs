@@ -17,6 +17,7 @@ function Confirmation() {
   const dispatch=useDispatch()
   const allState = useSelector((state) => state);
   const { userData } = allState.userTransfer;
+  console.log(allState);
   const { transaction } = allState.userTransfer;
 
   const [isHide, setIsHide] = useState(true);
@@ -95,16 +96,22 @@ function Confirmation() {
     const token = JSON.parse(localStorage.getItem("token"));
     try {
       const checkPin = await dispatch(checkPinAction(joinPin,token))
+      console.log('checkPin', checkPin);
       if(checkPin.value.data.status === 200) {
-          dispatch(createTransferAction(transaction, token))
-          setIsHide(true);
-          alert('Transaksi Selesai');
-          router.push('/home')
+          const transaksi = await dispatch(createTransferAction(transaction, token))
+          console.log('transaksi', transaksi);
+          if(transaksi.value.data.status===200){
+            setIsHide(true);
+            router.push(`/transactionsucces/${transaksi.value.data.data.id}`)
+          }else{
+            setIsHide(true);
+            router.push('/transactionfailed')
+          }
           
       }
     } catch (error) {
-      console.log(error);
-      alert('Pin Salah')
+      setIsHide(true);
+      alert("gagal transaksi")
     }
     // Create transfer
   };

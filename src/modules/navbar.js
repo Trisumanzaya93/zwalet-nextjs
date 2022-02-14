@@ -4,7 +4,7 @@ import styles from "../commons/styles/navbar.module.css"
 import image from "../commons/assets/image/default-user.png"
 import icon from "../commons/assets/image/bell.svg"
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getUserByIdAction } from "../redux/actions/users";
 
 
@@ -21,6 +21,7 @@ function Navbar() {
       getUserByIdAction(id,token)
     );
   };
+  
   useEffect(() => {
     checkLogin();
   }, []);
@@ -31,7 +32,7 @@ function Navbar() {
           <Link href="/profile" passHref>
             <div className="photo">
               <Image src={userData.image !== null ? `${process.env.NEXT_PUBLIC_HEROKU_IMAGE}${userData.image}` : image} 
-              width="52" height="52" alt="foto profile" />
+               onError={()=>image}  width={52}height={52} quality={52} alt="foto profile" />
             </div>
           </Link>
 

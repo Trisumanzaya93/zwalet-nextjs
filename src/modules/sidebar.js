@@ -76,13 +76,15 @@ function SideBar() {
         <p>Logout</p>
       </div>
       {/* modal */}
-      <div className={styles.modalContainer} hidden={isHide}>
+      <div className={styles.bgContainer} hidden={isHide}>
+        <div className={styles.modalContainer} hidden={isHide}>
           <p>Top Up</p>
           <h6>
             Enter the amount of money, and click <br /> submit
           </h6>
           <input type="number" className={`form-control ${styles["modal-input"]} shadow-none`} name="amount" id="exampleInputEmail1"onChange={(e)=>handleAmount(e)} aria-describedby="emailHelp"></input>
           <button className="btn btn-secondary" onClick={handleTopUp}>Submit</button>
+        </div>
         </div>
     </div>
   );

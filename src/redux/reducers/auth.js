@@ -33,6 +33,7 @@ const authReducer = (prevState = initialState, action) => {
       const userData = {
         ...prevState.userData,
         token: data.data.token,
+        pin: data.data.pin,
         id: data.data.id,
       };
       return {

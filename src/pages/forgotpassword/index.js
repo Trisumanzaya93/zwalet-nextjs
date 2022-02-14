@@ -19,13 +19,13 @@ function ForgotPassword() {
         console.log(e.target);
         const body = {
             email: e.target.email.value,
-            linkDirect:"http://localhost:3000/"
+            linkDirect:`http://zwalet-nextjs.vercel.app/changepassword`
         };
         console.log(body);
         dispatch(forgotPasswordAction(body)).then((result) => {
             console.log('ini ',result.value.data.data);
             const data = result.value.data.data
-            alert("succes")
+            alert("silahkan cek email anda")
         ;
         
         }).catch((err) => console.log(err));

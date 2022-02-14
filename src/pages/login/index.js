@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { loginAction } from '../../redux/actions/auth'
 import Sidelogin from "../../modules/sidelogin";
 import { useRouter } from "next/router";
+import {toast,ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
   const router = useRouter()
@@ -18,21 +20,35 @@ function Login() {
       email: e.target.email.value,
       password: e.target.password.value,
   };
-  console.log(body);
-  dispatch(loginAction(body)).then((result) => {
+    console.log(body);
+    dispatch(loginAction(body)).then((result) => {
     console.log('ini ',result.value.data.data);
     const data = result.value.data.data
     localStorage.setItem("token", JSON.stringify(data.token));
     localStorage.setItem("id", JSON.stringify(data.id));
+    toast.success("login success", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose : 2000
+  });
     if(data.pin===null){
-      router.push("/createpin")
+      setTimeout(()=> {
+        router.push("/createpin")
+       }, 3000)
     }else{
-      router.push("/home")
+      setTimeout(()=> {
+        router.push("/home")
+       }, 3000)
+
     }
-    alert("succes")
+    // alert("succes")
 ;
 
-}).catch((err) => alert("passwor atau email salah"));
+}).catch((err) => {
+  toast.error("Email atau Password salah", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose : 2000
+  });
+});
   
   }
   return <div>
@@ -66,6 +82,7 @@ function Login() {
         </a>
         <button  type="submit" className={`${styles["btn-1"]}`}>Login
         </button>
+        <ToastContainer />
         <footer className={`${styles["sign-up"]}`}>
           <span>
             Don’t have an account? Let’s

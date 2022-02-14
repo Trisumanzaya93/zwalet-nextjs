@@ -54,10 +54,11 @@
     margin-bottom: 20px;
 }
   .article{
-    width: 55%;
+    width: 45%;
     border-radius: 25px;
     background-color: #ffffff;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    padding-right: 20px;
   }
   .resume {
     display: flex;
@@ -87,7 +88,7 @@
     font-size: 18px;
   }
   .aside{
-    width: 55%;
+    width: 40%;
     margin-left: 20px;
     margin-bottom: 20px;
     border-radius: 25px;
@@ -106,17 +107,33 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 25px;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    margin: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+  }
+  .wraperTransaction{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .wraperImage{
+    width: 30%;
   }
   .history {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
   .name1 {
+    width: 100%;
     margin-left: 10px;
   }
   .desc {
@@ -130,14 +147,13 @@
     cursor: pointer;
   }
   .green {
-    margin: auto;
-    margin-right: 0;
+    width: auto;
     color: #1EC15F;
-    margin-left: 120px;
-    /* justify-content: space-between; */
+    text-align: end;
+
   }
   .red {
-    margin: auto;
-    margin-right: 0;
+    width: auto;
     color: #FF5B37;
+    text-align: end;
   }

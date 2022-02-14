@@ -5,25 +5,19 @@ import Layout from "../../modules/layout";
 import styles from "../../commons/styles/changepassword.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changePasswordAction } from "../../redux/actions/auth";
+import {  changePasswordEmailAction } from "../../redux/actions/auth";
 import { useRouter } from "next/router";
-import {toast, ToastContainer,} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { route } from "next/dist/server/router";
 
-function ChangePassword() {
+function ChangePasswordEmail() {
   const router=useRouter()
   const dispatch=useDispatch()
   const [body,setBody] = useState({
-    oldPassword:"",
+    keysChangePassword:"",
     newPassword:"",
     confirmPassword:"",
 })
 console.log(body);
-const handleChangeOldPass=(e)=>{
-  console.log(e.target.value);
-  const value= e.target.value;
-  setBody({...body,oldPassword:value})
-}
 const handleChangeNewPass=(e)=>{
   console.log(e.target.value);
   const value= e.target.value;
@@ -32,28 +26,26 @@ const handleChangeNewPass=(e)=>{
 const handleChangeConfirmPass=(e)=>{
   console.log(e.target.value);
   const value= e.target.value;
-  setBody({...body, confirmPassword:value})
+  const idReset =router.query.resetId
+  setBody({...body, confirmPassword:value,keysChangePassword:idReset })
 }
 const handleChangePass=()=>{
-  const token = JSON.parse(localStorage.getItem("token"));
-  const id = JSON.parse(localStorage.getItem("id"));
-  console.log(id,body,token)
-  dispatch(changePasswordAction(id,body,token))
+
+  console.log(body)
+  dispatch(changePasswordEmailAction(body))
       .then((result) => {
         console.log("ini ", result.value.data.data);
         const data = result.value.data.data;
-        toast.success("update password success", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose : 2000
-      });
+        console.log("data kamu isinya apa",data);
+        alert("succes", result);
+        // router.push('/login')
       })
-      .catch((err) => alert("password gagal"));
+      .catch((err) => console.log(err));
     };
   return <div>
-      <Layout title="Change Password">
-          <Navbar/>
-          <div className="d-flex">
-              <SideBar/>
+      <Layout title="Change Password forgot">
+          
+          <div className="d-flex justify-content-center">
               <div>
               <div className={`${styles["profile-section"]}`}>
           <p className={`${styles["profile-title"]}`}>Change Password</p>
@@ -62,16 +54,12 @@ const handleChangePass=()=>{
           </p>
           <div className={`${styles["change-password"]}`}>
             <div className={`${styles["input-password"]}`}>
-              <input type="password" id="password" className={styles.input} onChange={(e)=>handleChangeOldPass(e)} placeholder="Current password"/>
+              <input type="password" className={styles.input} onChange={(e)=>handleChangeNewPass(e)} placeholder="New password"/>
             </div>
             <div className={`${styles["input-password"]}`}>
-              <input type="password" id="password" className={styles.input} onChange={(e)=>handleChangeNewPass(e)} placeholder="New password"/>
-            </div>
-            <div className={`${styles["input-password"]}`}>
-              <input type="password" id="password" className={styles.input}  onChange={(e)=>handleChangeConfirmPass(e)} placeholder="Repeat new password" />
+              <input type="password"  className={styles.input}  onChange={(e)=>handleChangeConfirmPass(e)} placeholder="Repeat new password" />
             </div>
             <button href="./profile.html" onClick={handleChangePass} id="confirm1" className={`${styles["change-btn"]}`}>Change Password</button>
-            <ToastContainer/>
           </div>
         </div>
               </div>
@@ -82,4 +70,4 @@ const handleChangePass=()=>{
   </div>;
 }
 
-export default ChangePassword;
+export default ChangePasswordEmail;

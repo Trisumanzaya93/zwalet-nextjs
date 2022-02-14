@@ -1,5 +1,5 @@
 import { ACTION_STRING } from "./actionString";
-import { login, signUp,forgotPassword,checkPin } from "../../utils/auth";
+import { login, signUp,forgotPassword,checkPin,changePassword,changePasswordemail } from "../../utils/auth";
 
 export const loginAction = (body) => {
   return {
@@ -25,5 +25,19 @@ export const signUpAction = (body) => {
     return {
       type: ACTION_STRING.checkPin,
       payload: checkPin(pin,token),
+    };
+  };
+  export const changePasswordAction = (id,body,token) => {
+    console.log('cotomate',id);
+    return {
+      type: ACTION_STRING.changePassword,
+      payload: changePassword(id,body,token),
+    };
+  };
+
+  export const changePasswordEmailAction = (body) => {
+    return {
+      type: ACTION_STRING.changePasswordEmail,
+      payload: changePasswordemail(body),
     };
   };

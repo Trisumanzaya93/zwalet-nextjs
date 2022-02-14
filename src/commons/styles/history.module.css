@@ -74,9 +74,11 @@
     /* justify-content: space-between; */
   }
   .red {
-    margin: auto;
+    width: 48vw;
     margin-right: 0;
+    margin-top: 40px;
     color: #FF5B37;
+    text-align: end;
   }
   .pagination-next{
     border: 1px solid #d0cccc;

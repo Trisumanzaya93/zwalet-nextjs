@@ -3,4 +3,5 @@ module.exports = {
   images: {
     domains: ['zwalet.herokuapp.com'],
   },
+  
 }

@@ -3,6 +3,7 @@ import { ActionType } from "redux-promise-middleware";
 
 const initialState = {
   data: [],
+  pagination:{},
   isPending: false,
   isFulfilled: false,
   isRejected: false,
@@ -31,6 +32,7 @@ const searchReciverReducer = (prevState = initialState, action) => {
         isPending: false,
         isFulfilled: true,
         data: data.data,
+        pagination:data.pagination
       };
 
     // case authLogin + rejected:
