@@ -48,6 +48,18 @@
     font-weight: bold;
     font-size: 22px;
     margin-top: 10px;
+    border: none;
+}
+.detail-field-input {
+    color: #514F5B;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 20px;
+    border: none;
+}
+.detail-field:focus {
+    border: none;
+    background-color: white;
 }
 .manage-tab {
     margin-right: 30px;

@@ -88,7 +88,7 @@ function DetailProfile() {
                   <p className={`${styles["detail-title"]}`}>First Name</p>
                   {isSave ? (
                     <input
-                      className={`${styles["detail-field"]}`}
+                      className={`${styles["detail-field-input"]}`}
                       type={"text"}
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
@@ -101,7 +101,7 @@ function DetailProfile() {
                   <p className={`${styles["detail-title"]}`}>Last Name</p>
                   {isSave ? (
                     <input
-                      className={`${styles["detail-field"]}`}
+                      className={`${styles["detail-field-input"]}`}
                       type={"text"}
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
