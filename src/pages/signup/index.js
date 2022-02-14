@@ -18,8 +18,8 @@ function Signup() {
     e.preventDefault();
     console.log(e.target);
     const body = {
-      firstName: e.target.email.value,
-      lastName: e.target.email.value,
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value,
     };
